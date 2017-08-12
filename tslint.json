@@ -1,4 +1,5 @@
 {
+  "extends": "tslint:latest",
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
@@ -25,7 +26,7 @@
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
-      true,
+      false,
       140
     ],
     "member-access": false,
@@ -53,6 +54,7 @@
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-super": true,
+    "no-duplicate-variable": true,
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
