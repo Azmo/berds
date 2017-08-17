@@ -4,8 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Set up development environment
 
+We recommend [Visual Studio Code](https://code.visualstudio.com/) for code editing
 Install [Node.js](https://nodejs.org/en/)
-
+Install [git](https://git-scm.com/)
+`npm install -g @angular/cli`
 
 ## Development server
 
