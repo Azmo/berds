@@ -27,7 +27,6 @@ export class AppComponent implements OnInit {
   currentUserId: string;
   currentUserName: string;
   currentUserEmail: string;
-  currentApplicationId: string;
   isLoading = true;
 
   constructor(private afAuth: AngularFireAuth, public db: AngularFireDatabase, private router: Router, iconRegistry: MdIconRegistry, public dialog: MdDialog) {
@@ -47,13 +46,10 @@ export class AppComponent implements OnInit {
       this.currentUserId = auth.uid;
       this.currentUserName = auth.displayName;
       this.currentUserEmail = auth.email;
-      const user = this.db.object(`/user/${this.currentUserId}`);
+      const user = this.db.object(`/users/${this.currentUserId}`);
       user.subscribe((item) => {
-        if (item.$exists()) {
-          this.currentApplicationId = item.applicationId;
-          localStorage.setItem('applicationId', item.applicationId);
-        } else {
-          this.createNewUserAndApplication();
+        if (!item.$exists()) {
+          this.createNewUser();
         }
       });
 
@@ -109,26 +105,13 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  private createNewUserAndApplication() {
-    const newApplication = {
-      parties: {
-        applicant: {
-          id: this.currentUserId,
-          name: this.currentUserName,
-        },
-      },
+  private createNewUser() {
+    const userData = {
+      authName: this.currentUserName,
+      authEmail: this.currentUserEmail,
     };
-    const newApplicationRef = this.db.list(`/application`);
-    newApplicationRef.push(newApplication).then((application) => {
-      this.currentApplicationId = application.key;
-      const userData = {
-        authName: this.currentUserName,
-        authEmail: this.currentUserEmail,
-        applicationId: this.currentApplicationId,
-      };
-      const newUser = this.db.object(`/user/${this.currentUserId}`);
-      newUser.set(userData);
-    });
+    const newUser = this.db.object(`/users/${this.currentUserId}`);
+    newUser.set(userData);
   }
 
   private getDeepestTitle(routeSnapshot: ActivatedRouteSnapshot) {
@@ -143,7 +126,6 @@ export class AppComponent implements OnInit {
     const feedbackDialog = this.dialog.open(FeedbackDialogComponent);
     feedbackDialog.afterClosed().subscribe((feedback) => {
       feedback.userId = this.currentUserId;
-      feedback.applicationId = this.currentApplicationId;
       feedback.url = this.router.routerState.snapshot.url;
       feedback.userName = this.currentUserName;
       feedback.email = this.currentUserEmail;

@@ -4,7 +4,8 @@
   </button>
   <span class="fill-remaining-space"></span>
   <div class="button-row">
-    <button *ngIf="!currentUserId" md-icon-button [mdMenuTriggerFor]="menu">Login {{ currentUserId}}</button>
+    <button *ngIf="!currentUserId" md-icon-button [mdMenuTriggerFor]="menu">Login</button>
+    <button *ngIf="currentUserId" md-icon-button (click)="logout()">Log Out</button>
     <button md-mini-fab mdTooltip="Help" routerLink="/Help">
       <md-icon>help</md-icon>
     </button>
