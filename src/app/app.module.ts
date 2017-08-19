@@ -21,11 +21,12 @@ import { PageNotFoundComponent } from './page.not.found';
 
 // Must export the config
 export const firebaseConfig = {
-  apiKey: 'AIzaSyBo41ERx8-sWyLWx56WvFc-RH6-nCvpFTI',
-  authDomain: 'partways-dev.firebaseapp.com',
-  databaseURL: 'https://partways-dev.firebaseio.com',
-  storageBucket: 'partways-dev.appspot.com',
-  messagingSenderId: '1727367456',
+  apiKey: 'AIzaSyAb-D5GEN0RJGPKH0R4YrD-gPbk9wfGk-k',
+  authDomain: 'berds-dev.firebaseapp.com',
+  databaseURL: 'https://berds-dev.firebaseio.com',
+  projectId: 'berds-dev',
+  storageBucket: 'berds-dev.appspot.com',
+  messagingSenderId: '1005944715430',
 };
 
 @NgModule({
