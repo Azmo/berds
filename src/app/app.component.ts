@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
       const user = this.db.object(`/users/${this.currentUserId}`);
       user.subscribe((item) => {
         if (!item.$exists()) {
-          this.createNewUser();
+          this.createNewUser(auth);
         }
       });
 
@@ -105,12 +105,14 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  private createNewUser() {
+  private createNewUser(user: firebase.User) {
     const userData = {
-      authName: this.currentUserName,
-      authEmail: this.currentUserEmail,
+      displayName: user.displayName,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      photoURL: user.photoURL,
     };
-    const newUser = this.db.object(`/users/${this.currentUserId}`);
+    const newUser = this.db.object(`/users/${this.currentUserId}/auth`);
     newUser.set(userData);
   }
 
