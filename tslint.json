@@ -1,9 +1,10 @@
 {
   "extends": "tslint:latest",
-  "rulesDirectory": [
+    "rulesDirectory": [
     "node_modules/codelyzer"
   ],
   "rules": {
+    "no-submodule-imports":false,
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
@@ -16,7 +17,8 @@
     "forin": true,
     "import-blacklist": [
       true,
-      "rxjs"
+      "rxjs",
+      "rxjs/Rx"
     ],
     "import-spacing": true,
     "indent": [
@@ -26,7 +28,7 @@
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
-      false,
+      true,
       140
     ],
     "member-access": false,
@@ -54,7 +56,6 @@
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-super": true,
-    "no-duplicate-variable": true,
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
@@ -137,8 +138,6 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "no-access-missing-member": true,
-    "templates-use-public": true,
     "invoke-injectable": true
   }
 }

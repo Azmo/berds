@@ -1,6 +1,0 @@
-{
-  "projects": {
-    "dev": "berds-dev",
-    "prod": "berds-test"
-  }
-}
