@@ -1,3 +1,16 @@
-<p>
-  land works!
-</p>
+<form class="form">
+  <mat-form-field class="full-width">
+    <input matInput type="text" placeholder="Location" name="Location" [(ngModel)]="location" />
+    <button mat-button *ngIf="location" matSuffix mat-icon-button aria-label="Clear" (click)="location=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Min.Price" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Max.Price" />
+  </mat-form-field>
+  <button mat-raised-button color="accent">Filter</button>
+</form>
