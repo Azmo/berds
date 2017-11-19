@@ -1,3 +1,44 @@
-<p>
-  land-edit works!
-</p>
+<form class="form-container">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Lot Address" name="address" [(ngModel)]="address" />
+  </mat-form-field>
+  <div fxLayout="row">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Lot Size in sqm" name="size" [(ngModel)]="size" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Lot Width in meters" name="width" [(ngModel)]="width" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Lot Length in meters" name="length" [(ngModel)]="length" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Price" name="price" [(ngModel)]="price" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Price per sqm" name="pricePerSqm" />
+    </mat-form-field>
+  </div>
+  <section>
+    <mat-checkbox class="checkbox-margin" name="frontLandscaping" [(ngModel)]="frontLandscaping">Front Landscaping</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="rearLandscaping" [(ngModel)]="rearLandscaping">Rear Landscaping</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="fencing" [(ngModel)]="fencing">Fencing</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="titles" [(ngModel)]="titles">Titles</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="noice" [(ngModel)]="noice">Noice</mat-checkbox>
+  </section>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Site Class" name="siteClass" [(ngModel)]="siteClass" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="BAL" name="bal" [(ngModel)]="bal" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Developer" name="developer" [(ngModel)]="developer" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Estate" name="estate" [(ngModel)]="estate" />
+  </mat-form-field>
+</form>
+<button mat-raised-button>Save</button>
