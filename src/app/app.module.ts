@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { HouseComponent } from './house/house.component';
 import { LandComponent } from './land/land.component';
 import { PackageComponent } from './package/package.component';
+import { LandEditComponent } from './land-edit/land-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PackageComponent } from './package/package.component';
     HouseComponent,
     FinishingItemComponent,
     PackageComponent,
+    LandEditComponent,
   ],
   imports: [
     AppRouting,

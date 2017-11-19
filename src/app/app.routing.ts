@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FinishingItemComponent } from './finishing-item/finishing-item.component';
 import { HomeComponent } from './home/home.component';
 import { HouseComponent } from './house/house.component';
+import { LandEditComponent } from './land-edit/land-edit.component';
 import { LandComponent } from './land/land.component';
 import { PackageComponent } from './package/package.component';
 
@@ -17,6 +18,9 @@ const appRoutes: Routes = [
     }, {
         path: 'land',
         component: LandComponent,
+    }, {
+        path: 'land/edit',
+        component: LandEditComponent,
     }, {
         path: 'packages',
         component: PackageComponent,
