@@ -17,9 +17,19 @@ import { AppRouting } from './app.routing';
 import { FinishingItemComponent } from './finishing-item/finishing-item.component';
 import { HomeComponent } from './home/home.component';
 import { HouseComponent } from './house/house.component';
+import { LandEditComponent } from './land-edit/land-edit.component';
 import { LandComponent } from './land/land.component';
 import { PackageComponent } from './package/package.component';
-import { LandEditComponent } from './land-edit/land-edit.component';
+
+// Initialize Firebase
+export const firebaseConfig = {
+  apiKey: 'AIzaSyCjl2A4PbZ431Np9qJBp_mi2KEL-s2LaAI',
+  authDomain: 'yourhomeselector-dev.firebaseapp.com',
+  databaseURL: 'https://yourhomeselector-dev.firebaseio.com',
+  projectId: 'yourhomeselector-dev',
+  storageBucket: 'yourhomeselector-dev.appspot.com',
+  messagingSenderId: '436450569408',
+};
 
 @NgModule({
   declarations: [
