@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   MatButtonModule,
+  MatCardModule,
   MatCheckboxModule,
   MatFormFieldModule,
   MatIconModule,
@@ -39,6 +40,7 @@ import { PackageComponent } from './package/package.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
