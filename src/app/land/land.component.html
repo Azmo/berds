@@ -15,3 +15,11 @@
   <button mat-raised-button color="accent">Filter</button>
   <button mat-raised-button color="accent" routerLink="/land/edit">Add</button>
 </form>
+
+<mat-nav-list>
+  <a mat-list-item href="/land/edit" *ngFor="let land of lands | async">
+    <mat-icon mat-list-icon>bin</mat-icon>
+    <h4 mat-line>{{land.price}} {{land.address}}</h4>
+    <p mat-line>{{land.size}}sqm, {{land.width}}x{{land.length}} {{land.developer}} {{land.estate}}</p>
+  </a>
+</mat-nav-list>

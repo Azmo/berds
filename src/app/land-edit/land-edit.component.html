@@ -4,41 +4,41 @@
   </mat-form-field>
   <div fxLayout="row">
     <mat-form-field>
-      <input matInput type="text" placeholder="Lot Size in sqm" name="size" [(ngModel)]="size" />
+      <input matInput type="text" placeholder="Lot Size in sqm" name="size" [(ngModel)]="land.size" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" placeholder="Lot Width in meters" name="width" [(ngModel)]="width" />
+      <input matInput type="text" placeholder="Lot Width in meters" name="width" [(ngModel)]="land.width" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" placeholder="Lot Length in meters" name="length" [(ngModel)]="length" />
+      <input matInput type="text" placeholder="Lot Length in meters" name="length" [(ngModel)]="land.length" />
     </mat-form-field>
   </div>
   <div fxLayout="row">
     <mat-form-field>
-      <input matInput type="text" placeholder="Price" name="price" [(ngModel)]="price" />
+      <input matInput type="text" placeholder="Price" name="price" [(ngModel)]="land.price" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" placeholder="Price per sqm" name="pricePerSqm" />
+      <input matInput type="text" placeholder="Price per sqm" name="land.pricePerSqm" />
     </mat-form-field>
   </div>
   <section>
-    <mat-checkbox class="checkbox-margin" name="frontLandscaping" [(ngModel)]="frontLandscaping">Front Landscaping</mat-checkbox>
-    <mat-checkbox class="checkbox-margin" name="rearLandscaping" [(ngModel)]="rearLandscaping">Rear Landscaping</mat-checkbox>
-    <mat-checkbox class="checkbox-margin" name="fencing" [(ngModel)]="fencing">Fencing</mat-checkbox>
-    <mat-checkbox class="checkbox-margin" name="titles" [(ngModel)]="titles">Titles</mat-checkbox>
-    <mat-checkbox class="checkbox-margin" name="noice" [(ngModel)]="noice">Noice</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="frontLandscaping" [(ngModel)]="land.frontLandscaping">Front Landscaping</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="rearLandscaping" [(ngModel)]="land.rearLandscaping">Rear Landscaping</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="fencing" [(ngModel)]="land.fencing">Fencing</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="title" [(ngModel)]="land.title">Title</mat-checkbox>
+    <mat-checkbox class="checkbox-margin" name="noise" [(ngModel)]="land.noise">Noise</mat-checkbox>
   </section>
   <mat-form-field>
-    <input matInput type="text" placeholder="Site Class" name="siteClass" [(ngModel)]="siteClass" />
+    <input matInput type="text" placeholder="Site Class" name="siteClass" [(ngModel)]="land.siteClass" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="text" placeholder="BAL" name="bal" [(ngModel)]="bal" />
+    <input matInput type="text" placeholder="BAL" name="bal" [(ngModel)]="land.bal" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="text" placeholder="Developer" name="developer" [(ngModel)]="developer" />
+    <input matInput type="text" placeholder="Developer" name="developer" [(ngModel)]="land.developer" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="text" placeholder="Estate" name="estate" [(ngModel)]="estate" />
+    <input matInput type="text" placeholder="Estate" name="estate" [(ngModel)]="land.estate" />
   </mat-form-field>
   <button mat-raised-button type="submit" [disabled]="!landForm.form.valid">Submit</button>
 </form>

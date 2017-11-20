@@ -7,6 +7,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatListModule,
   MatToolbarModule,
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
@@ -55,6 +56,7 @@ export const firebaseConfig = {
     MatInputModule,
     MatIconModule,
     MatCardModule,
+    MatListModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
   ],
