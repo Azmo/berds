@@ -19,7 +19,7 @@ const appRoutes: Routes = [
         path: 'land',
         component: LandComponent,
     }, {
-        path: 'land/edit',
+        path: 'land/edit/:id',
         component: LandEditComponent,
     }, {
         path: 'packages',

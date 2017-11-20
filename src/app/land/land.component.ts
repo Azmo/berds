@@ -18,7 +18,14 @@ export class LandComponent implements OnInit {
 
   ngOnInit() {
     this.landCollection = this.afs.collection<ILand>('land');
-    this.lands = this.landCollection.valueChanges();
+    // this.lands = this.landCollection.valueChanges();
+    this.lands = this.landCollection.snapshotChanges().map((actions) => {
+      return actions.map((action) => {
+        const data = action.payload.doc.data() as ILand;
+        const id = action.payload.doc.id;
+        return { id, ...data };
+      });
+    });
   }
 
 }

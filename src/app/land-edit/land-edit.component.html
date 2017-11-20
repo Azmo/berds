@@ -1,7 +1,9 @@
 <form class="form-container" (ngSubmit)="onSubmit(land)" #landForm="ngForm">
   <mat-form-field>
-    <input matInput type="text" placeholder="Lot Address" name="address" [(ngModel)]="land.address" />
+    <input matInput type="text" placeholder="Lot Address" name="address" [ngModel]="(land|async)?.address" (ngModelChange)="landDocument.update({address: $event})"
+    />
   </mat-form-field>
+  <!--
   <div fxLayout="row">
     <mat-form-field>
       <input matInput type="text" placeholder="Lot Size in sqm" name="size" [(ngModel)]="land.size" />
@@ -40,5 +42,6 @@
   <mat-form-field>
     <input matInput type="text" placeholder="Estate" name="estate" [(ngModel)]="land.estate" />
   </mat-form-field>
+-->
   <button mat-raised-button type="submit" [disabled]="!landForm.form.valid">Submit</button>
 </form>
