@@ -1,5 +1,5 @@
-<form class="form">
-  <mat-form-field class="full-width">
+<form fxLayout="row">
+  <mat-form-field>
     <input matInput type="text" placeholder="Location" name="Location" [(ngModel)]="location" />
     <button mat-button *ngIf="location" matSuffix mat-icon-button aria-label="Clear" (click)="location=''">
       <mat-icon>close</mat-icon>
@@ -12,13 +12,12 @@
   <mat-form-field>
     <input matInput placeholder="Max.Price" />
   </mat-form-field>
-  <button mat-raised-button color="accent">Filter</button>
-  <button mat-raised-button color="accent" routerLink="/land/edit">Add</button>
+  <button mat-raised-button>Filter</button>
+  <button mat-raised-button routerLink="/land/edit/new">Add</button>
 </form>
 
 <mat-nav-list>
   <a mat-list-item href="/land/edit/{{land.id}}" *ngFor="let land of lands | async">
-    <mat-icon mat-list-icon>bin</mat-icon>
     <h4 mat-line>{{land.price}} {{land.address}}</h4>
     <p mat-line>{{land.size}}sqm, {{land.width}}x{{land.length}} {{land.developer}} {{land.estate}}</p>
   </a>

@@ -20,10 +20,8 @@ export class LandEditComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.landCollection = this.afs.collection<ILand>('land');
-    this.landDocument = this.landCollection.doc(id);
-    this.land = this.landDocument.valueChanges();
-    /*
-      this.land = {
+    if (id === 'new') {
+      this.landCollection.add({
         address: '',
         bal: '',
         developer: '',
@@ -39,12 +37,20 @@ export class LandEditComponent implements OnInit {
         size: 0,
         title: false,
         width: 0,
-      };
-      */
+      }).then((doc) => {
+        this.landDocument = this.landCollection.doc(doc.id);
+        this.land = this.landDocument.valueChanges();
+      },
+      );
+
+    } else {
+      this.landDocument = this.landCollection.doc(id);
+      this.land = this.landDocument.valueChanges();
+
+    }
   }
 
-  onSubmit() {
-    // this.landCollection.add(this.land).then((value) => console.log(value), (error) => console.log(error));
-    this.router.navigate(['/land']);
+  delete() {
+    this.landDocument.delete();
   }
 }

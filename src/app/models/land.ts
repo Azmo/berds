@@ -1,4 +1,5 @@
 export interface ILand {
+    id?: string;
     address: string;
     size: number;
     width: number;
