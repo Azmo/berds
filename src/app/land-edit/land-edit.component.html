@@ -1,4 +1,4 @@
-<form class="form-container" (ngSubmit)="onSubmit(land)" #landForm="ngForm">
+<form class="form-container" #landForm="ngForm">
   <mat-form-field>
     <input matInput type="text" placeholder="Lot Address" name="address" [ngModel]="(land|async)?.address" (ngModelChange)="landDocument.update({address: $event})"
     />
