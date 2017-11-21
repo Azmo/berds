@@ -13,11 +13,11 @@
     <input matInput placeholder="Max.Price" />
   </mat-form-field>
   <button mat-raised-button>Filter</button>
-  <button mat-raised-button routerLink="/land/edit/new">Add</button>
+  <button mat-raised-button routerLink="/lands/edit/new">Add</button>
 </form>
 
 <mat-nav-list>
-  <a mat-list-item href="/land/edit/{{land.id}}" *ngFor="let land of lands | async">
+  <a mat-list-item href="/lands/edit/{{land.id}}" *ngFor="let land of lands | async">
     <h4 mat-line>{{land.price}} {{land.address}}</h4>
     <p mat-line>{{land.size}}sqm, {{land.width}}x{{land.length}} {{land.developer}} {{land.estate}}</p>
   </a>

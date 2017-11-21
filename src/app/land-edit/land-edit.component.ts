@@ -10,7 +10,7 @@ import { ILand } from '../models/land';
   styleUrls: ['./land-edit.component.css'],
 })
 export class LandEditComponent implements OnInit {
-  private landCollection: AngularFirestoreCollection<ILand>;
+  private landsCollection: AngularFirestoreCollection<ILand>;
   public landDocument: AngularFirestoreDocument<ILand>;
   public land: Observable<ILand>;
 
@@ -19,9 +19,9 @@ export class LandEditComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.landCollection = this.afs.collection<ILand>('land');
+    this.landsCollection = this.afs.collection<ILand>('lands');
     if (id === 'new') {
-      this.landCollection.add({
+      this.landsCollection.add({
         address: '',
         bal: '',
         developer: '',
@@ -38,15 +38,12 @@ export class LandEditComponent implements OnInit {
         title: false,
         width: 0,
       }).then((doc) => {
-        this.landDocument = this.landCollection.doc(doc.id);
+        this.landDocument = this.landsCollection.doc(doc.id);
         this.land = this.landDocument.valueChanges();
-      },
-      );
-
+      });
     } else {
-      this.landDocument = this.landCollection.doc(id);
+      this.landDocument = this.landsCollection.doc(id);
       this.land = this.landDocument.valueChanges();
-
     }
   }
 

@@ -10,16 +10,16 @@ import { ILand } from '../models/land';
 })
 export class LandComponent implements OnInit {
   location = '';
-  private landCollection: AngularFirestoreCollection<ILand>;
+  private landsCollection: AngularFirestoreCollection<ILand>;
   public lands: Observable<ILand[]>;
 
   constructor(private afs: AngularFirestore) {
   }
 
   ngOnInit() {
-    this.landCollection = this.afs.collection<ILand>('land');
-    // this.lands = this.landCollection.valueChanges();
-    this.lands = this.landCollection.snapshotChanges().map((actions) => {
+    this.landsCollection = this.afs.collection<ILand>('lands');
+    // this.lands = this.landsCollection.valueChanges();
+    this.lands = this.landsCollection.snapshotChanges().map((actions) => {
       return actions.map((action) => {
         const data = action.payload.doc.data() as ILand;
         const id = action.payload.doc.id;

@@ -20,10 +20,10 @@ const appRoutes: Routes = [
         path: 'houses/edit/:id',
         component: HouseEditComponent,
     }, {
-        path: 'land',
+        path: 'lands',
         component: LandComponent,
     }, {
-        path: 'land/edit/:id',
+        path: 'lands/edit/:id',
         component: LandEditComponent,
     }, {
         path: 'packages',
