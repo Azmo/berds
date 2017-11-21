@@ -4,7 +4,7 @@ export interface IHouse {
     size: number;
     livingArea: number;
     minLotWidth: number;
-    minLOtLength: number;
+    minLotLength: number;
     price: number;
     tilesArea: number;
     carpetsArea: number;
