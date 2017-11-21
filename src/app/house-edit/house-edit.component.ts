@@ -28,7 +28,7 @@ export class HouseEditComponent implements OnInit {
         builder: '',
         carpetsArea: 0,
         livingArea: 0,
-        minLOtLength: 0,
+        minLotLength: 0,
         minLotWidth: 0,
         name: '',
         paintingArea: 0,

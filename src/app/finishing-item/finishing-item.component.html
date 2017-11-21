@@ -1,3 +1,19 @@
-<p>
-  finishing items coming soon!
-</p>
+<form class="form-container" #houseForm="ngForm">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Tiles price per M²" name="tiles" [ngModel]="(finish|async)?.tiles" (ngModelChange)="finishDocument.update({tiles: $event})"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Carpets price per M²" name="carpets" [ngModel]="(finish|async)?.carpets" (ngModelChange)="finishDocument.update({carpets: $event})"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Blinds price per LM" name="blinds" [ngModel]="(finish|async)?.blinds" (ngModelChange)="finishDocument.update({blinds: $event})"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Painting price per M²" name="painting" [ngModel]="(finish|async)?.painting" (ngModelChange)="finishDocument.update({painting: $event})"
+    />
+  </mat-form-field>
+
+</form>
