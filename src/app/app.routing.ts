@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FinishingItemComponent } from './finishing-item/finishing-item.component';
 import { HomeComponent } from './home/home.component';
+import { HouseEditComponent } from './house-edit/house-edit.component';
 import { HouseComponent } from './house/house.component';
 import { LandEditComponent } from './land-edit/land-edit.component';
 import { LandComponent } from './land/land.component';
@@ -15,6 +16,9 @@ const appRoutes: Routes = [
     }, {
         path: 'houses',
         component: HouseComponent,
+    }, {
+        path: 'houses/edit/:id',
+        component: HouseEditComponent,
     }, {
         path: 'land',
         component: LandComponent,

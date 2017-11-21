@@ -1,0 +1,8 @@
+<form class="form-container" #houseForm="ngForm">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Name" name="name" [ngModel]="(house|async)?.name" (ngModelChange)="houseDocument.update({name: $event})"
+    />
+  </mat-form-field>
+</form>
+<button mat-raised-button routerLink="/houses">Done</button>
+<button mat-raised-button color="warn" (click)="delete()" routerLink="/houses">Delete</button>

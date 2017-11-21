@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing';
 import { FinishingItemComponent } from './finishing-item/finishing-item.component';
 import { HomeComponent } from './home/home.component';
+import { HouseEditComponent } from './house-edit/house-edit.component';
 import { HouseComponent } from './house/house.component';
 import { LandEditComponent } from './land-edit/land-edit.component';
 import { LandComponent } from './land/land.component';
@@ -43,6 +44,7 @@ export const firebaseConfig = {
     FinishingItemComponent,
     PackageComponent,
     LandEditComponent,
+    HouseEditComponent,
   ],
   imports: [
     AppRouting,
