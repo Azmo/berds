@@ -7,7 +7,7 @@
         <input matInput type="text" placeholder="Lot Address" name="address" [ngModel]="(land|async)?.address" (ngModelChange)="landDocument.update({address: $event})"
         />
       </mat-form-field>
-      <div fxLayout="row">
+      <section>
         <mat-form-field>
           <input matInput type="text" placeholder="Lot Size in sqm" name="size" [ngModel]="(land|async)?.size" (ngModelChange)="landDocument.update({size: $event})"
           />
@@ -20,17 +20,18 @@
           <input matInput type="text" placeholder="Lot Length in meters" name="length" [ngModel]="(land|async)?.length" (ngModelChange)="landDocument.update({length: $event})"
           />
         </mat-form-field>
-      </div>
-      <div fxLayout="row">
+      </section>
+      <section>
         <mat-form-field>
           <input matInput type="text" placeholder="Price" name="price" [ngModel]="(land|async)?.price" (ngModelChange)="landDocument.update({price: $event})"
           />
+          <span matPrefix>$&nbsp;</span>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="text" placeholder="Price per sqm" name="(land|async)?.pricePerSqm" (ngModelChange)="landDocument.update({pricePerSqm: $event})"
           />
         </mat-form-field>
-      </div>
+      </section>
       <section>
         <mat-checkbox class="checkbox-margin" name="frontLandscaping" [ngModel]="(land|async)?.frontLandscaping" (ngModelChange)="landDocument.update({frontLandscaping: $event})">Front Landscaping</mat-checkbox>
         <mat-checkbox class="checkbox-margin" name="rearLandscaping" [ngModel]="(land|async)?.rearLandscaping" (ngModelChange)="landDocument.update({rearLandscaping: $event})">Rear Landscaping</mat-checkbox>
@@ -38,22 +39,26 @@
         <mat-checkbox class="checkbox-margin" name="title" [ngModel]="(land|async)?.title" (ngModelChange)="landDocument.update({title: $event})">Title</mat-checkbox>
         <mat-checkbox class="checkbox-margin" name="noise" [ngModel]="(land|async)?.noise" (ngModelChange)="landDocument.update({noise: $event})">Noise</mat-checkbox>
       </section>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Site Class" name="siteClass" [ngModel]="(land|async)?.siteClass" (ngModelChange)="landDocument.update({siteClass: $event})"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="text" placeholder="BAL" name="bal" [ngModel]="(land|async)?.bal" (ngModelChange)="landDocument.update({bal: $event})"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Developer" name="developer" [ngModel]="(land|async)?.developer" (ngModelChange)="landDocument.update({developer: $event})"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Estate" name="estate" [ngModel]="(land|async)?.estate" (ngModelChange)="landDocument.update({estate: $event})"
-        />
-      </mat-form-field>
+      <section>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Site Class" name="siteClass" [ngModel]="(land|async)?.siteClass" (ngModelChange)="landDocument.update({siteClass: $event})"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" placeholder="BAL" name="bal" [ngModel]="(land|async)?.bal" (ngModelChange)="landDocument.update({bal: $event})"
+          />
+        </mat-form-field>
+      </section>
+      <section>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Developer" name="developer" [ngModel]="(land|async)?.developer" (ngModelChange)="landDocument.update({developer: $event})"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Estate" name="estate" [ngModel]="(land|async)?.estate" (ngModelChange)="landDocument.update({estate: $event})"
+          />
+        </mat-form-field>
+      </section>
     </form>
   </mat-card-content>
   <mat-card-actions>

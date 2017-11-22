@@ -20,7 +20,7 @@
 
 <mat-nav-list>
   <a mat-list-item href="/houses/edit/{{house.id}}" *ngFor="let house of houses | async">
-    <h4 mat-line>{{house.price}} {{house.name}}</h4>
+    <h4 mat-line>{{house.price | currency}} {{house.name}}</h4>
     <p mat-line>{{house.beds}}x{{house.baths}}x{{house.parking}} Storeys:{{house.storeys}} Size:{{house.size}}sqm Living area:{{house.livingArea}}
       Builder: {{house.builder}}</p>
   </a>

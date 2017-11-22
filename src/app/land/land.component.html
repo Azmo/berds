@@ -18,7 +18,7 @@
 
 <mat-nav-list>
   <a mat-list-item href="/lands/edit/{{land.id}}" *ngFor="let land of lands | async">
-    <h4 mat-line>{{land.price}} {{land.address}}</h4>
+    <h4 mat-line>{{land.price | currency}} {{land.address}}</h4>
     <p mat-line>{{land.size}}sqm, {{land.width}}x{{land.length}} {{land.developer}} {{land.estate}}</p>
   </a>
 </mat-nav-list>
