@@ -13,6 +13,7 @@ export class HouseEditComponent implements OnInit {
   private housesCollection: AngularFirestoreCollection<IHouse>;
   public houseDocument: AngularFirestoreDocument<IHouse>;
   public house: Observable<IHouse>;
+  isLoading = true;
 
   constructor(private afs: AngularFirestore, private router: Router, private route: ActivatedRoute) {
   }
@@ -40,14 +41,12 @@ export class HouseEditComponent implements OnInit {
       }).then((doc) => {
         this.houseDocument = this.housesCollection.doc(doc.id);
         this.house = this.houseDocument.valueChanges();
-      },
-      );
-
+      });
     } else {
       this.houseDocument = this.housesCollection.doc(id);
       this.house = this.houseDocument.valueChanges();
-
     }
+    this.house.subscribe(() => this.isLoading = false);
   }
 
   delete() {

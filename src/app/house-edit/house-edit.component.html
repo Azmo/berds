@@ -7,6 +7,7 @@
   <img src="https://firebasestorage.googleapis.com/v0/b/yourhomeselector-dev.appspot.com/o/Answer%20BIG%20DEAL%20Elevation.jpg?alt=media&token=bb1319e0-a24f-45a2-be9e-1687e21b1421"
     alt="Lot">
   <mat-card-content>
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     <form class="form-container" #houseForm="ngForm">
       <div>
         <mat-form-field>

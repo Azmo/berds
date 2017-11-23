@@ -1,3 +1,4 @@
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 <form class="form-container" #houseForm="ngForm">
   <mat-form-field>
     <input matInput type="text" placeholder="Tiles price per M²" name="tiles" [ngModel]="(finish|async)?.tiles" (ngModelChange)="finishDocument.update({tiles: $event})"

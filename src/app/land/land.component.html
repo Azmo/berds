@@ -17,6 +17,8 @@
   <button mat-raised-button routerLink="/lands/edit/new">Add</button>
 </form>
 
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
 <mat-nav-list>
   <a mat-list-item href="/lands/edit/{{land.id}}" *ngFor="let land of lands | async">
     <h4 mat-line>{{land.price | currency}} {{land.address}}</h4>

@@ -11,6 +11,7 @@ import { IHouse } from '../models/house';
 export class HouseComponent implements OnInit {
   private housesCollection: AngularFirestoreCollection<IHouse>;
   public houses: Observable<IHouse[]>;
+  isLoading = true;
 
   constructor(private afs: AngularFirestore) { }
 
@@ -24,6 +25,6 @@ export class HouseComponent implements OnInit {
         return { id, ...data };
       });
     });
+    this.houses.subscribe(() => this.isLoading = false);
   }
-
 }

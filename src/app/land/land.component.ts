@@ -12,6 +12,7 @@ export class LandComponent implements OnInit {
   location = '';
   priceMin: number = null;
   priceMax: number = null;
+  isLoading = true;
   private landsCollection: AngularFirestoreCollection<ILand>;
   public lands: Observable<ILand[]>;
 
@@ -23,6 +24,7 @@ export class LandComponent implements OnInit {
   }
 
   onFilter() {
+    this.isLoading = true;
     this.landsCollection = (this.priceMin || this.priceMax) ?
       (this.priceMin && !this.priceMax) ?
         this.afs.collection<ILand>('lands', (ref) => ref.where('price', '>=', this.priceMin)) :
@@ -39,5 +41,7 @@ export class LandComponent implements OnInit {
         return { id, ...data };
       });
     });
+
+    this.lands.subscribe(() => this.isLoading = false);
   }
 }

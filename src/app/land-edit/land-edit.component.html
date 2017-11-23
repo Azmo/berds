@@ -2,6 +2,7 @@
   <img src="https://firebasestorage.googleapis.com/v0/b/yourhomeselector-dev.appspot.com/o/lot_sample_2.jpg?alt=media&token=631bcb8e-8141-4b80-beda-d4f898ae3935"
     alt="Lot">
   <mat-card-content>
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     <form class="form-container" #landForm="ngForm">
       <mat-form-field>
         <input matInput type="text" placeholder="Lot Address" name="address" [ngModel]="(land|async)?.address" (ngModelChange)="landDocument.update({address: $event})"

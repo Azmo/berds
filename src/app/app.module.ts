@@ -8,6 +8,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule,
+  MatProgressBarModule,
   MatToolbarModule,
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
@@ -59,6 +60,7 @@ export const firebaseConfig = {
     MatIconModule,
     MatCardModule,
     MatListModule,
+    MatProgressBarModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
   ],

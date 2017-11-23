@@ -14,6 +14,8 @@ export class LandEditComponent implements OnInit {
   public landDocument: AngularFirestoreDocument<ILand>;
   public land: Observable<ILand>;
 
+  isLoading = true;
+
   constructor(private afs: AngularFirestore, private router: Router, private route: ActivatedRoute) {
   }
 
@@ -45,6 +47,7 @@ export class LandEditComponent implements OnInit {
       this.landDocument = this.landsCollection.doc(id);
       this.land = this.landDocument.valueChanges();
     }
+    this.land.subscribe(() => this.isLoading = false);
   }
 
   delete() {

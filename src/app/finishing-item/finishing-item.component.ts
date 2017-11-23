@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/Observable';
 export class FinishingItemComponent implements OnInit {
   public finishDocument: AngularFirestoreDocument<any>;
   public finish: Observable<any>;
+  isLoading = true;
 
   constructor(private afs: AngularFirestore) {
   }
@@ -17,6 +18,7 @@ export class FinishingItemComponent implements OnInit {
   ngOnInit() {
     this.finishDocument = this.afs.collection<any>('finish').doc('estimated');
     this.finish = this.finishDocument.valueChanges();
+    this.finish.subscribe(() => this.isLoading = false);
   }
 
 }
