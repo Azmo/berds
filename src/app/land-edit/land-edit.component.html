@@ -1,11 +1,16 @@
 <mat-card class="card-container">
-  <img src="https://firebasestorage.googleapis.com/v0/b/yourhomeselector-dev.appspot.com/o/lot_sample.jpg?alt=media&token=50fb7fca-e441-4757-bcc3-5ad7a6f6492d"
+  <img src="https://firebasestorage.googleapis.com/v0/b/yourhomeselector-dev.appspot.com/o/lot_sample_2.jpg?alt=media&token=631bcb8e-8141-4b80-beda-d4f898ae3935"
     alt="Lot">
   <mat-card-content>
     <form class="form-container" #landForm="ngForm">
       <mat-form-field>
         <input matInput type="text" placeholder="Lot Address" name="address" [ngModel]="(land|async)?.address" (ngModelChange)="landDocument.update({address: $event})"
         />
+        <span matSuffix>
+          <a href="https://www.google.com/maps/search/?api=1&query={{(land|async)?.address}}" target="_blank">
+            <mat-icon>location_on</mat-icon>
+          </a>
+        </span>
       </mat-form-field>
       <section>
         <mat-form-field>
