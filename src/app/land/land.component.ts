@@ -10,6 +10,8 @@ import { ILand } from '../models/land';
 })
 export class LandComponent implements OnInit {
   location = '';
+  priceMin: number = null;
+  priceMax: number = null;
   private landsCollection: AngularFirestoreCollection<ILand>;
   public lands: Observable<ILand[]>;
 
@@ -17,7 +19,18 @@ export class LandComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.landsCollection = this.afs.collection<ILand>('lands');
+    this.onFilter();
+  }
+
+  onFilter() {
+    this.landsCollection = (this.priceMin || this.priceMax) ?
+      (this.priceMin && !this.priceMax) ?
+        this.afs.collection<ILand>('lands', (ref) => ref.where('price', '>=', this.priceMin)) :
+        ((!this.priceMin) && this.priceMax) ?
+          this.afs.collection<ILand>('lands', (ref) => ref.where('price', '<=', this.priceMax)) :
+          this.afs.collection<ILand>('lands', (ref) => ref.where('price', '>=', this.priceMin).where('price', '<=', this.priceMax)) :
+      this.afs.collection<ILand>('lands');
+
     // this.lands = this.landsCollection.valueChanges();
     this.lands = this.landsCollection.snapshotChanges().map((actions) => {
       return actions.map((action) => {
@@ -27,5 +40,4 @@ export class LandComponent implements OnInit {
       });
     });
   }
-
 }

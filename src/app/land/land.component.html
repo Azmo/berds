@@ -1,18 +1,19 @@
 <form fxLayout="row">
+  <!--
   <mat-form-field>
     <input matInput type="text" placeholder="Location" name="Location" [(ngModel)]="location" />
     <button mat-button *ngIf="location" matSuffix mat-icon-button aria-label="Clear" (click)="location=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
-
+-->
   <mat-form-field>
-    <input matInput placeholder="Min.Price" />
+    <input matInput placeholder="Min.Price" name="priceMin" [(ngModel)]="priceMin" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Max.Price" />
+    <input matInput placeholder="Max.Price" name="priceMax" [(ngModel)]="priceMax" />
   </mat-form-field>
-  <button mat-raised-button>Filter</button>
+  <button mat-raised-button (click)="onFilter()">Filter</button>
   <button mat-raised-button routerLink="/lands/edit/new">Add</button>
 </form>
 
