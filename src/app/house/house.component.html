@@ -1,20 +1,17 @@
 <form class="form">
   <mat-form-field>
-    <input matInput placeholder="Storys" />
+    <input type="number" matInput placeholder="Storeys" name="storeys" [(ngModel)]="storeys" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Min.Beds" />
+    <input type="number" matInput placeholder="Beds" name="beds" [(ngModel)]="beds" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Max.Beds" />
+    <input type="number" matInput placeholder="Min.Price" name="priceMin" [(ngModel)]="priceMin" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Min.Price" />
+    <input type="number" matInput placeholder="Max.Price" name="priceMax" [(ngModel)]="priceMax" />
   </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Max.Price" />
-  </mat-form-field>
-  <button mat-raised-button>Filter</button>
+  <button mat-raised-button (click)="onFilter()">Filter</button>
   <button mat-raised-button routerLink="/houses/edit/new">Add</button>
 </form>
 

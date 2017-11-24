@@ -12,11 +12,36 @@ export class HouseComponent implements OnInit {
   private housesCollection: AngularFirestoreCollection<IHouse>;
   public houses: Observable<IHouse[]>;
   isLoading = true;
+  storeys: number;
+  beds: number;
+  priceMin: number;
+  priceMax: number;
 
   constructor(private afs: AngularFirestore) { }
 
   ngOnInit() {
-    this.housesCollection = this.afs.collection<IHouse>('houses');
+    this.onFilter();
+  }
+
+  onFilter() {
+    this.isLoading = true;
+    this.housesCollection = this.afs.collection<IHouse>('houses', (ref) => {
+      let query = ref.limit(50);
+      if (this.storeys) {
+        query = query.where('storeys', '==', this.storeys);
+      }
+      if (this.beds) {
+        query = query.where('beds', '==', this.beds);
+      }
+      if (this.priceMin) {
+        query = query.where('price', '>=', this.priceMin);
+      }
+      if (this.priceMax) {
+        query = query.where('price', '<=', this.priceMax);
+      }
+      return query;
+    });
+
     // this.houses = this.landCollection.valueChanges();
     this.houses = this.housesCollection.snapshotChanges().map((actions) => {
       return actions.map((action) => {

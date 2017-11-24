@@ -8,10 +8,10 @@
   </mat-form-field>
 -->
   <mat-form-field>
-    <input matInput placeholder="Min.Price" name="priceMin" [(ngModel)]="priceMin" />
+    <input type="number" matInput placeholder="Min.Price" name="priceMin" [(ngModel)]="priceMin" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Max.Price" name="priceMax" [(ngModel)]="priceMax" />
+    <input type="number" matInput placeholder="Max.Price" name="priceMax" [(ngModel)]="priceMax" />
   </mat-form-field>
   <button mat-raised-button (click)="onFilter()">Filter</button>
   <button mat-raised-button routerLink="/lands/edit/new">Add</button>

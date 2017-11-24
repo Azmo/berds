@@ -25,13 +25,16 @@ export class LandComponent implements OnInit {
 
   onFilter() {
     this.isLoading = true;
-    this.landsCollection = (this.priceMin || this.priceMax) ?
-      (this.priceMin && !this.priceMax) ?
-        this.afs.collection<ILand>('lands', (ref) => ref.where('price', '>=', this.priceMin)) :
-        ((!this.priceMin) && this.priceMax) ?
-          this.afs.collection<ILand>('lands', (ref) => ref.where('price', '<=', this.priceMax)) :
-          this.afs.collection<ILand>('lands', (ref) => ref.where('price', '>=', this.priceMin).where('price', '<=', this.priceMax)) :
-      this.afs.collection<ILand>('lands');
+    this.landsCollection = this.afs.collection<ILand>('lands', (ref) => {
+      let query = ref.limit(50);
+      if (this.priceMin) {
+        query = query.where('price', '>=', this.priceMin);
+      }
+      if (this.priceMax) {
+        query = query.where('price', '<=', this.priceMax);
+      }
+      return query;
+    });
 
     // this.lands = this.landsCollection.valueChanges();
     this.lands = this.landsCollection.snapshotChanges().map((actions) => {
