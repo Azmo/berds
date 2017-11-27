@@ -23,22 +23,23 @@ export class LandEditComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.landsCollection = this.afs.collection<ILand>('lands');
     if (id === 'new') {
+      this.isLoading = false;
       this.landsCollection.add({
-        address: '',
-        bal: '',
-        developer: '',
-        estate: '',
+        address: null,
+        bal: null,
+        developer: null,
+        estate: null,
         fencing: false,
         frontLandscaping: false,
-        length: 0,
+        length: null,
         noise: false,
-        price: 0,
-        pricePerSqm: 0,
+        price: null,
+        pricePerSqm: null,
         rearLandscaping: false,
-        siteClass: '',
-        size: 0,
+        siteClass: null,
+        size: null,
         title: false,
-        width: 0,
+        width: null,
       }).then((doc) => {
         this.landDocument = this.landsCollection.doc(doc.id);
         this.land = this.landDocument.valueChanges();
@@ -46,8 +47,8 @@ export class LandEditComponent implements OnInit {
     } else {
       this.landDocument = this.landsCollection.doc(id);
       this.land = this.landDocument.valueChanges();
+      this.land.subscribe(() => this.isLoading = false);
     }
-    this.land.subscribe(() => this.isLoading = false);
   }
 
   delete() {

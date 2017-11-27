@@ -1,8 +1,8 @@
-<mat-card class="card-container">
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<mat-card *ngIf="!isLoading" class="card-container">
   <img src="https://firebasestorage.googleapis.com/v0/b/yourhomeselector-dev.appspot.com/o/lot_sample_2.jpg?alt=media&token=631bcb8e-8141-4b80-beda-d4f898ae3935"
     alt="Lot">
   <mat-card-content>
-    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     <form class="form-container" #landForm="ngForm">
       <mat-form-field>
         <input matInput type="text" placeholder="Lot Address" name="address" [ngModel]="(land|async)?.address" (ngModelChange)="landDocument.update({address: $event})"
@@ -15,26 +15,26 @@
       </mat-form-field>
       <section>
         <mat-form-field>
-          <input matInput type="text" placeholder="Lot Size in sqm" name="size" [ngModel]="(land|async)?.size" (ngModelChange)="landDocument.update({size: $event})"
+          <input matInput type="number" placeholder="Lot Size in sqm" name="size" [ngModel]="(land|async)?.size" (ngModelChange)="landDocument.update({size: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Lot Width in meters" name="width" [ngModel]="(land|async)?.width" (ngModelChange)="landDocument.update({width: $event})"
+          <input matInput type="number" placeholder="Lot Width in meters" name="width" [ngModel]="(land|async)?.width" (ngModelChange)="landDocument.update({width: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Lot Length in meters" name="length" [ngModel]="(land|async)?.length" (ngModelChange)="landDocument.update({length: $event})"
+          <input matInput type="number" placeholder="Lot Length in meters" name="length" [ngModel]="(land|async)?.length" (ngModelChange)="landDocument.update({length: $event})"
           />
         </mat-form-field>
       </section>
       <section>
         <mat-form-field>
-          <input matInput type="text" placeholder="Price" name="price" [ngModel]="(land|async)?.price" (ngModelChange)="landDocument.update({price: $event})"
+          <input matInput type="number" placeholder="Price" name="price" [ngModel]="(land|async)?.price" (ngModelChange)="landDocument.update({price: $event})"
           />
           <span matPrefix>$&nbsp;</span>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Price per sqm" name="(land|async)?.pricePerSqm" (ngModelChange)="landDocument.update({pricePerSqm: $event})"
+          <input matInput type="number" placeholder="Price per sqm" name="(land|async)?.pricePerSqm" (ngModelChange)="landDocument.update({pricePerSqm: $event})"
           />
         </mat-form-field>
       </section>

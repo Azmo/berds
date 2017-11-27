@@ -1,4 +1,5 @@
-<mat-card class="card-container">
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<mat-card *ngIf="!isLoading" class="card-container">
   <mat-card-header>
     <div mat-card-avatar class="redink-homes-logo"></div>
     <mat-card-title>{{(house|async)?.name}}</mat-card-title>
@@ -7,7 +8,6 @@
   <img src="https://firebasestorage.googleapis.com/v0/b/yourhomeselector-dev.appspot.com/o/Answer%20BIG%20DEAL%20Elevation.jpg?alt=media&token=bb1319e0-a24f-45a2-be9e-1687e21b1421"
     alt="Lot">
   <mat-card-content>
-    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     <form class="form-container" #houseForm="ngForm">
       <div>
         <mat-form-field>
@@ -15,7 +15,7 @@
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Price" name="price" [ngModel]="(house|async)?.price" (ngModelChange)="houseDocument.update({price: $event})"
+          <input matInput type="number" placeholder="Price" name="price" [ngModel]="(house|async)?.price" (ngModelChange)="houseDocument.update({price: $event})"
           />
           <span matPrefix>$&nbsp;</span>
         </mat-form-field>
@@ -26,55 +26,55 @@
       </div>
       <div fxLayout="row">
         <mat-form-field>
-          <input matInput type="text" placeholder="Storeys" name="storeys" [ngModel]="(house|async)?.storeys" (ngModelChange)="houseDocument.update({storeys: $event})"
+          <input matInput type="number" placeholder="Storeys" name="storeys" [ngModel]="(house|async)?.storeys" (ngModelChange)="houseDocument.update({storeys: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Beds" name="beds" [ngModel]="(house|async)?.beds" (ngModelChange)="houseDocument.update({beds: $event})"
+          <input matInput type="number" placeholder="Beds" name="beds" [ngModel]="(house|async)?.beds" (ngModelChange)="houseDocument.update({beds: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Baths" name="baths" [ngModel]="(house|async)?.baths" (ngModelChange)="houseDocument.update({baths: $event})"
+          <input matInput type="number" placeholder="Baths" name="baths" [ngModel]="(house|async)?.baths" (ngModelChange)="houseDocument.update({baths: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Parking" name="parking" [ngModel]="(house|async)?.parking" (ngModelChange)="houseDocument.update({parking: $event})"
+          <input matInput type="number" placeholder="Parking" name="parking" [ngModel]="(house|async)?.parking" (ngModelChange)="houseDocument.update({parking: $event})"
           />
         </mat-form-field>
       </div>
       <div fxLayout="row">
         <mat-form-field>
-          <input matInput type="text" placeholder="Size" name="size" [ngModel]="(house|async)?.size" (ngModelChange)="houseDocument.update({size: $event})"
+          <input matInput type="number" placeholder="Size" name="size" [ngModel]="(house|async)?.size" (ngModelChange)="houseDocument.update({size: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Living Area" name="livingArea" [ngModel]="(house|async)?.livingArea" (ngModelChange)="houseDocument.update({livingArea: $event})"
+          <input matInput type="number" placeholder="Living Area" name="livingArea" [ngModel]="(house|async)?.livingArea" (ngModelChange)="houseDocument.update({livingArea: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Min. Lot Width Required (M)" name="minLotWidth" [ngModel]="(house|async)?.minLotWidth"
+          <input matInput type="number" placeholder="Min. Lot Width Required (M)" name="minLotWidth" [ngModel]="(house|async)?.minLotWidth"
             (ngModelChange)="houseDocument.update({minLotWidth: $event})" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Min. Lot Length Required (M)" name="minLotLength" [ngModel]="(house|async)?.minLotLength"
+          <input matInput type="number" placeholder="Min. Lot Length Required (M)" name="minLotLength" [ngModel]="(house|async)?.minLotLength"
             (ngModelChange)="houseDocument.update({minLotLength: $event})" />
         </mat-form-field>
       </div>
       <div fxLayout="row">
         <mat-form-field>
-          <input matInput type="text" placeholder="Tiles Area (M²)" name="tilesArea" [ngModel]="(house|async)?.tilesArea" (ngModelChange)="houseDocument.update({tilesArea: $event})"
+          <input matInput type="number" placeholder="Tiles Area (M²)" name="tilesArea" [ngModel]="(house|async)?.tilesArea" (ngModelChange)="houseDocument.update({tilesArea: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Carpets Area (M²)" name="carpetsArea" [ngModel]="(house|async)?.carpetsArea" (ngModelChange)="houseDocument.update({carpetsArea: $event})"
+          <input matInput type="number" placeholder="Carpets Area (M²)" name="carpetsArea" [ngModel]="(house|async)?.carpetsArea" (ngModelChange)="houseDocument.update({carpetsArea: $event})"
           />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Blinds Length (LM)" name="blindsLength" [ngModel]="(house|async)?.blindsLength"
+          <input matInput type="number" placeholder="Blinds Length (LM)" name="blindsLength" [ngModel]="(house|async)?.blindsLength"
             (ngModelChange)="houseDocument.update({blindsLength: $event})" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Painting Area (M²)" name="paintingArea" [ngModel]="(house|async)?.paintingArea"
+          <input matInput type="number" placeholder="Painting Area (M²)" name="paintingArea" [ngModel]="(house|async)?.paintingArea"
             (ngModelChange)="houseDocument.update({paintingArea: $event})" />
         </mat-form-field>
       </div>

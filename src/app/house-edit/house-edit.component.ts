@@ -22,22 +22,23 @@ export class HouseEditComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.housesCollection = this.afs.collection<IHouse>('houses');
     if (id === 'new') {
+      this.isLoading = false;
       this.housesCollection.add({
-        baths: 0,
-        beds: 0,
-        blindsLength: 0,
-        builder: '',
-        carpetsArea: 0,
-        livingArea: 0,
-        minLotLength: 0,
-        minLotWidth: 0,
-        name: '',
-        paintingArea: 0,
-        parking: 0,
-        price: 0,
-        size: 0,
+        baths: null,
+        beds: null,
+        blindsLength: null,
+        builder: null,
+        carpetsArea: null,
+        livingArea: null,
+        minLotLength: null,
+        minLotWidth: null,
+        name: null,
+        paintingArea: null,
+        parking: null,
+        price: null,
+        size: null,
         storeys: 1,
-        tilesArea: 0,
+        tilesArea: null,
       }).then((doc) => {
         this.houseDocument = this.housesCollection.doc(doc.id);
         this.house = this.houseDocument.valueChanges();
@@ -45,8 +46,8 @@ export class HouseEditComponent implements OnInit {
     } else {
       this.houseDocument = this.housesCollection.doc(id);
       this.house = this.houseDocument.valueChanges();
+      this.house.subscribe(() => this.isLoading = false);
     }
-    this.house.subscribe(() => this.isLoading = false);
   }
 
   delete() {
